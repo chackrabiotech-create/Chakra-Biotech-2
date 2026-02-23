@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "@/components/providers";
+import { OrganizationStructuredData, WebsiteStructuredData } from "@/components/structured-data";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://chakrabiotech.com";
 
@@ -24,15 +25,13 @@ export const metadata: Metadata = {
     "sustainable agriculture",
     "agri-tech innovation",
     "Kashmir saffron alternative",
+    "buy saffron online India",
+    "saffron price India",
   ],
-  authors: [{ name: "Chakra Biotech LLP" }],
+  authors: [{ name: "Chakra Biotech LLP", url: siteUrl }],
   creator: "Chakra Biotech LLP",
   publisher: "Chakra Biotech LLP",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -70,9 +69,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
-    // yandex: "your-yandex-verification-code",
-    // bing: "your-bing-verification-code",
+    google: "P7xktxQvkjDDtdmf1zCxSy0S5GSGNEpVo2BejA_JdOA",
   },
   alternates: {
     canonical: siteUrl,
@@ -88,13 +85,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta
-          name="google-site-verification"
-          content="P7xktxQvkjDDtdmf1zCxSy0S5GSGNEpVo2BejA_JdOA"
-        />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/logo.png" />
         <meta name="theme-color" content="#DC2626" />
+        <OrganizationStructuredData />
+        <WebsiteStructuredData />
       </head>
       <body className="antialiased">
         <Providers>{children}</Providers>
