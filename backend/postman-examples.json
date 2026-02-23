@@ -1,0 +1,141 @@
+{
+  "info": {
+    "name": "Chakra Bio API",
+    "description": "API endpoints for Chakra Bio backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Admin Login",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"admin@chakrabio.com\",\n  \"password\": \"your_password\"\n}"
+            },
+            "url": "{{baseUrl}}/api/admin/login"
+          }
+        },
+        {
+          "name": "Verify Token",
+          "request": {
+            "method": "GET",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "url": "{{baseUrl}}/api/admin/verify"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products (Admin)",
+      "item": [
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "url": "{{baseUrl}}/api/admin/products"
+          }
+        },
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{token}}"},
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Premium Kashmiri Saffron\",\n  \"description\": \"Finest quality saffron from Kashmir\",\n  \"shortDescription\": \"Grade A+ Kashmiri Saffron\",\n  \"category\": \"category_id_here\",\n  \"price\": 2999,\n  \"originalPrice\": 3999,\n  \"grade\": \"A+\",\n  \"origin\": \"Kashmir\",\n  \"weight\": \"1g\",\n  \"images\": [\"cloudinary_url_here\"],\n  \"isPublished\": true\n}"
+            },
+            "url": "{{baseUrl}}/api/admin/products"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Products (Public)",
+      "item": [
+        {
+          "name": "Get Published Products",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/products?page=1&limit=12"
+          }
+        },
+        {
+          "name": "Get Product by Slug",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/products/premium-kashmiri-saffron"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Blogs (Admin)",
+      "item": [
+        {
+          "name": "Create Blog",
+          "request": {
+            "method": "POST",
+            "header": [
+              {"key": "Authorization", "value": "Bearer {{token}}"},
+              {"key": "Content-Type", "value": "application/json"}
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"10 Health Benefits of Saffron\",\n  \"excerpt\": \"Discover amazing health benefits\",\n  \"content\": \"<p>Full content here...</p>\",\n  \"featuredImage\": \"cloudinary_url\",\n  \"category\": \"category_id\",\n  \"author\": \"Dr. Priya Sharma\",\n  \"tags\": [\"health\", \"benefits\"],\n  \"readTime\": \"5 min read\",\n  \"isPublished\": true\n}"
+            },
+            "url": "{{baseUrl}}/api/admin/blogs"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "item": [
+        {
+          "name": "Submit Contact Form",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type", "value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"phone\": \"+91 9876543210\",\n  \"subject\": \"Product Inquiry\",\n  \"message\": \"I want to know more about your products\"\n}"
+            },
+            "url": "{{baseUrl}}/api/contact"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Upload",
+      "item": [
+        {
+          "name": "Upload Single Image",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Authorization", "value": "Bearer {{token}}"}],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {"key": "image", "type": "file", "src": ""}
+              ]
+            },
+            "url": "{{baseUrl}}/api/admin/upload/image"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {"key": "baseUrl", "value": "http://localhost:5000"},
+    {"key": "token", "value": "your_jwt_token_here"}
+  ]
+}
