@@ -46,7 +46,24 @@ const values = [
   },
 ];
 
-const team = [
+type Experience = {
+  company: string;
+  designation: string;
+  duration: string;
+  points: string[];
+};
+
+type TeamMember = {
+  name: string;
+  role: string;
+  bio: string;
+  image: string;
+  education?: string[];
+  certifications?: string[];
+  experience?: Experience[];
+};
+
+const team: TeamMember[] = [
   {
     name: "Mr. Mali Ram Sharma",
     role: "Founder & Advisor",
