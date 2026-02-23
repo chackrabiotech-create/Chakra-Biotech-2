@@ -534,11 +534,11 @@ const TrainingPageSettingsPanel = () => {
                                     </ul>
                                 </div>
                             )}
-                            {settings?.modules.length > 0 && (
+                            {(settings?.modules?.length ?? 0) > 0 && (
                                 <div className="p-5 border-b bg-gray-50">
                                     <h2 className="text-base font-bold mb-3">Course Modules</h2>
                                     <div className="grid grid-cols-2 gap-2">
-                                        {settings.modules.map((m, i) => <div key={i} className="bg-white p-3 rounded border"><p className="text-xs font-semibold">{m.title}</p><p className="text-xs text-gray-500 mt-0.5">{m.description}</p></div>)}
+                                        {settings?.modules?.map((m, i) => <div key={i} className="bg-white p-3 rounded border"><p className="text-xs font-semibold">{m.title}</p><p className="text-xs text-gray-500 mt-0.5">{m.description}</p></div>)}
                                     </div>
                                 </div>
                             )}
