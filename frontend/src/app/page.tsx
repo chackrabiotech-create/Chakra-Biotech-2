@@ -7,10 +7,8 @@ import {
   backgroundPresets,
 } from "@/components/ui/background-wrapper";
 import { HeroCarousel } from "@/components/home/HeroCarousel";
-import { BrandsSection } from "@/components/home/BrandsSection";
 import { FeaturedProducts } from "@/components/home/FeaturedProducts";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
-import { StatsSection } from "@/components/home/StatsSection";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { BenefitsSection } from "@/components/home/BenefitsSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
@@ -64,19 +62,6 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative"
-            >
-              <div className="absolute inset-0 backdrop-blur-sm bg-background/25 rounded-2xl mx-4" />
-              <div className="relative z-10">
-                <BrandsSection />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.1 }}
               className="relative"
             >
@@ -96,19 +81,6 @@ export default function Home() {
               <div className="absolute inset-0 backdrop-blur-sm bg-background/25 rounded-2xl mx-4" />
               <div className="relative z-10">
                 <WhyChooseUs />
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative"
-            >
-              <div className="absolute inset-0 backdrop-blur-sm bg-background/20 rounded-2xl mx-4" />
-              <div className="relative z-10">
-                <StatsSection />
               </div>
             </motion.div>
 

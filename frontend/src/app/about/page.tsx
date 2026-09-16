@@ -4,7 +4,6 @@ import type { Metadata } from "next";
 import { motion } from "framer-motion";
 import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
-import { QualityCertification } from "@/components/ui/quality-certification";
 import Link from "next/link";
 import {
   Award,
@@ -46,21 +45,12 @@ const values = [
   },
 ];
 
-type Experience = {
-  company: string;
-  designation: string;
-  duration: string;
-  points: string[];
-};
-
 type TeamMember = {
   name: string;
   role: string;
   bio: string;
   image: string;
   education?: string[];
-  certifications?: string[];
-  experience?: Experience[];
 };
 
 const team: TeamMember[] = [
@@ -75,11 +65,6 @@ const team: TeamMember[] = [
     role: "Operations & Quality",
     bio: "Expert in modern farming systems and agricultural market operations. Leads R&D and cultivation optimization with a focus on commercial scalability.",
     education: ["B.Sc. (Hons.) Agriculture", "MBA - Sales & Marketing"],
-    certifications: [
-      "70 Hours Personality Development & Communication Training",
-      "21 Days Training Programme on Agripreneurship (AAU Anand)",
-      "01 Week Training on Growing Startups in Agriculture (SKNAU Jobner)",
-    ],
     image: "/team-2.jpg",
   },
   {
@@ -92,30 +77,16 @@ const team: TeamMember[] = [
       "M.A.",
       "LL.B (Professional)",
     ],
-    certifications: [
-      "Professionally trained practitioner in HR, OD & OB (XLRI, ASCI, CII, XIM, JBIMS, IBPS, BTC, ISTD, NLI, CLI, RBI, TQMI, NTN, JOHNS HOPKINS, SNDT)",
-      "Qualified HRD Facilitator (Academy of HRD, Ahmedabad)",
-      "Life Member of ASCI - Hyderabad",
-      "Professional memberships with NIPM & HRD Network",
-    ],
     image: "/team-3.jpg",
   },
   {
     name: "Sanjeev Lurhta",
-    role: "Certified Career Coach & Psychometric Analyst",
+    role: "Career Coach & Psychometric Analyst",
     bio: "Accomplished professional with diverse experience across Armed Forces, IT, Insurance, Education, Business, Electronics, Mechanical, Pharma, and Soft Skills. Specializes in career counselling and psychometric assessment — empowering students and professionals.",
     education: [
       "Diploma in Management (IGNOU)",
       "PG Diploma in Computer Applications (COMPRO, 1990)",
       "Certificate in French Language (Raj University, 1991)",
-    ],
-    certifications: [
-      "Certified Career Coach (Mindler, NCDA, HCDA)",
-      "Psychometric Analyst (Crystalizing Aptitude)",
-      "IELTS Certified 2015 (7.5 Band, CEFR C1)",
-      "Fundamentals of Digital Marketing (Google)",
-      "Diploma in Human Resource Management (Udemy)",
-      "Certified Counselling Practitioner (Academy of Modern Applied Psychology)",
     ],
     image: "/team-4.jpg",
   },
@@ -326,7 +297,7 @@ export default function About() {
                     {member.bio}
                   </p>
 
-                  <div className="grid sm:grid-cols-2 gap-8 pt-4">
+                  <div className="pt-4">
                     {"education" in member && (
                       <div className="space-y-3">
                         <h4 className="font-bold text-foreground flex items-center gap-2">
@@ -343,82 +314,11 @@ export default function About() {
                         </ul>
                       </div>
                     )}
-
-                    {"certifications" in member && (
-                      <div className="space-y-3">
-                        <h4 className="font-bold text-foreground flex items-center gap-2">
-                          <ShieldCheck className="w-4 h-4 text-primary" />
-                          Certifications
-                        </h4>
-                        <ul className="space-y-2 text-sm text-muted-foreground">
-                          {member.certifications?.map((cert) => (
-                            <li key={cert} className="flex gap-2">
-                              <span className="text-primary">•</span>
-                              {cert}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
                   </div>
-
-                  {"experience" in member && (
-                    <div className="space-y-4 pt-4">
-                      <h4 className="font-bold text-foreground flex items-center gap-2">
-                        <Globe className="w-4 h-4 text-primary" />
-                        Professional Experience
-                      </h4>
-                      <div className="space-y-6">
-                        {member.experience?.map((exp, i) => (
-                          <div
-                            key={i}
-                            className="bg-muted/30 p-5 rounded-2xl border border-border/40"
-                          >
-                            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-1 mb-3">
-                              <div>
-                                <h5 className="font-bold text-foreground">
-                                  {exp.company}
-                                </h5>
-                                <p className="text-primary text-sm font-medium">
-                                  {exp.designation}
-                                </p>
-                              </div>
-                              <span className="text-[10px] uppercase tracking-wider font-bold bg-primary/10 text-primary px-3 py-1 rounded-full w-fit">
-                                {exp.duration}
-                              </span>
-                            </div>
-                            <ul className="space-y-1.5 text-xs text-muted-foreground">
-                              {exp.points.map((point, pi) => (
-                                <li key={pi} className="flex gap-2">
-                                  <span className="text-primary text-[10px]">
-                                    ◆
-                                  </span>
-                                  {point}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                 </div>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Quality Certification */}
-      <section className="py-24 bg-cream-dark">
-        <div className="container mx-auto px-4">
-          <QualityCertification
-            variant="full"
-            showMetrics={true}
-            showCertifications={true}
-            animated={true}
-            className="max-w-6xl mx-auto"
-          />
         </div>
       </section>
 

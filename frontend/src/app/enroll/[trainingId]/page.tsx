@@ -374,21 +374,6 @@ export default function EnrollPage() {
                                             </h3>
                                         </div>
 
-                                        {/* Price */}
-                                        <div className="flex items-baseline gap-2">
-                                            <span className="text-2xl font-bold text-primary">
-                                                ₹{training.price.toLocaleString()}
-                                            </span>
-                                            {training.originalPrice && training.originalPrice > training.price && (
-                                                <>
-                                                    <span className="text-sm text-muted-foreground line-through">
-                                                        ₹{training.originalPrice.toLocaleString()}
-                                                    </span>
-                                                    <Badge className="bg-red-500 text-xs">{discount}% OFF</Badge>
-                                                </>
-                                            )}
-                                        </div>
-
                                         {/* Details */}
                                         <div className="space-y-2.5 text-sm">
                                             <div className="flex items-center gap-2 text-muted-foreground">

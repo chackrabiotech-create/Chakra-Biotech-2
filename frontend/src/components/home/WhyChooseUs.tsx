@@ -64,14 +64,6 @@ export function WhyChooseUs() {
                 alt="Saffron Fields of Kashmir"
                 className="rounded-2xl md:rounded-3xl shadow-elevated w-full"
               />
-              <div className="absolute -bottom-4 -right-4 md:-bottom-6 md:-right-6 bg-primary text-primary-foreground p-4 md:p-6 rounded-xl md:rounded-2xl shadow-lg hidden xs:block">
-                <div className="text-2xl md:text-4xl font-bold font-serif whitespace-nowrap">
-                  35+
-                </div>
-                <div className="text-[10px] md:text-sm uppercase tracking-wider">
-                  Years of Excellence
-                </div>
-              </div>
             </div>
           </motion.div>
 

@@ -1,4 +1,5 @@
 require('dotenv').config();
+require('./dns-patch.cjs');
 const app = require('./src/app');
 const connectDB = require('./src/config/database');
 

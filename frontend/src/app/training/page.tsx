@@ -73,7 +73,7 @@ const defaultImpactStats = [
   { value: "95%", label: "Student Success Rate", icon: "Target" },
   { value: "40%", label: "Average Yield Increase", icon: "TrendingUp" },
   { value: "500+", label: "Farmers Trained", icon: "Users" },
-  { value: "15+", label: "Years of Expertise", icon: "Award" },
+  { value: "100%", label: "Practical Learning", icon: "Award" },
 ];
 
 const defaultGains = [
@@ -87,7 +87,7 @@ const defaultGains = [
 const defaultBenefits = [
   { title: "In-Campus Stay", description: "Convenient access to classrooms, labs, and library. Save commute time and foster a deeper campus experience with full immersion in learning.", icon: "Home" },
   { title: "Practical Training", description: "Hands-on sessions demonstrating setup and maintenance of cultivation systems, nutrient solutions, and comprehensive plant care techniques.", icon: "BookOpen" },
-  { title: "Certification", description: "Receive recognized credentials upon completion to validate your expertise and enhance your professional credibility in saffron cultivation.", icon: "Trophy" },
+  { title: "Expert Guidance", description: "Receive ongoing mentorship and practical guidance from agricultural specialists to help establish and maintain your saffron cultivation successfully.", icon: "Trophy" },
 ];
 
 const defaultHighlights = [
@@ -169,8 +169,8 @@ export default function TrainingPage() {
 
   const customSections = pageSettings?.sections?.filter((s) => s.isVisible) || [];
 
-  const handleEnquiry = (title: string, price: number) => {
-    const message = `Hello! I'm interested in the ${title} training program (₹${price}).`;
+  const handleEnquiry = (title: string) => {
+    const message = `Hello! I'm interested in the ${title} training program. Please share more details.`;
     window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
   };
 
@@ -374,11 +374,6 @@ export default function TrainingPage() {
                           {program.popular && (
                             <div className="absolute top-3 left-3 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">Most Popular</div>
                           )}
-                          {program.originalPrice && program.originalPrice > program.price && (
-                            <div className="absolute top-3 right-3 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-medium">
-                              {Math.round(((program.originalPrice - program.price) / program.originalPrice) * 100)}% OFF
-                            </div>
-                          )}
                         </div>
                       ) : (
                         <div className="relative h-48 bg-gradient-to-br from-primary/5 to-primary/10 flex items-center justify-center">
@@ -413,14 +408,6 @@ export default function TrainingPage() {
                         <div className="flex flex-wrap items-center gap-3 mt-3 text-sm text-muted-foreground">
                           <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5" />{program.duration}</span>
                           {program.location && <span className="flex items-center gap-1"><MapPin className="w-3.5 h-3.5" />{program.location}</span>}
-                        </div>
-
-                        {/* Price */}
-                        <div className="mt-4">
-                          <span className="text-2xl font-bold text-foreground">₹{program.price.toLocaleString()}</span>
-                          {program.originalPrice && program.originalPrice > program.price && (
-                            <span className="text-sm text-muted-foreground line-through ml-2">₹{program.originalPrice.toLocaleString()}</span>
-                          )}
                         </div>
 
                         {/* Seats Indicator */}
@@ -459,7 +446,7 @@ export default function TrainingPage() {
                                 View Details<ArrowRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-1 transition-transform" />
                               </Button>
                             </Link>
-                            <Button variant="ghost" className="text-sm px-3" onClick={() => handleEnquiry(program.title, program.price)}>
+                            <Button variant="ghost" className="text-sm px-3" onClick={() => handleEnquiry(program.title)}>
                               <MessageCircle className="w-4 h-4" />
                             </Button>
                           </div>
