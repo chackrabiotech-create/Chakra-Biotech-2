@@ -161,8 +161,6 @@ export default function TrainingDetailClient() {
         }),
         offers: {
             "@type": "Offer",
-            price: training.price,
-            priceCurrency: "INR",
             availability: training.isActive
                 ? "https://schema.org/InStock"
                 : "https://schema.org/SoldOut",
@@ -295,21 +293,6 @@ export default function TrainingDetailClient() {
                                             </span>
                                         </div>
                                     )}
-                                </div>
-
-                                {/* Price */}
-                                <div className="flex items-center gap-4 mb-8">
-                                    <span className="text-3xl font-bold text-primary">
-                                        ₹{training.price.toLocaleString()}
-                                    </span>
-                                    {training.originalPrice &&
-                                        training.originalPrice >
-                                        training.price && (
-                                            <span className="text-lg text-muted-foreground line-through">
-                                                ₹
-                                                {training.originalPrice.toLocaleString()}
-                                            </span>
-                                        )}
                                 </div>
 
                                 {/* CTA Buttons */}
@@ -755,33 +738,6 @@ export default function TrainingDetailClient() {
                         {/* 11. Sticky Sidebar */}
                         <div className="space-y-6">
                             <div className="bg-card p-6 rounded-2xl shadow-card border sticky top-24 space-y-6">
-                                {/* Price */}
-                                <div>
-                                    <div className="flex items-baseline gap-3">
-                                        <span className="text-3xl font-bold text-primary">
-                                            ₹
-                                            {training.price.toLocaleString()}
-                                        </span>
-                                        {training.originalPrice &&
-                                            training.originalPrice >
-                                            training.price && (
-                                                <span className="text-sm text-muted-foreground line-through">
-                                                    ₹
-                                                    {training.originalPrice.toLocaleString()}
-                                                </span>
-                                            )}
-                                    </div>
-                                    {discount > 0 && (
-                                        <p className="text-sm text-green-600 font-medium mt-1">
-                                            You save ₹
-                                            {(
-                                                training.originalPrice! -
-                                                training.price
-                                            ).toLocaleString()}{" "}
-                                            ({discount}% off)
-                                        </p>
-                                    )}
-                                </div>
 
                                 {/* Dates */}
                                 {(training.startDate || training.endDate) && (

@@ -8,7 +8,6 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { QualityCertification } from "@/components/ui/quality-certification";
 import {
   ShoppingBag,
   Star,
@@ -376,17 +375,6 @@ export default function ProductDetails() {
                     <Share2 className="w-5 h-5" />
                   </Button>
                 </div>
-              </div>
-
-              {/* Quality Badges */}
-              <div className="bg-cream p-6 rounded-2xl border border-border shadow-sm">
-                <QualityCertification
-                  variant="minimal"
-                  showMetrics={false}
-                  showCertifications={false}
-                  className="flex items-center justify-around"
-                />
-              </div>
             </div>
           </motion.div>
         </div>

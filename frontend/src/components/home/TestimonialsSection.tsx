@@ -5,22 +5,22 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Priya Sharma",
-    location: "Mumbai, India",
+    name: "Rajesh Patel",
+    location: "Commercial Saffron Grower, Gujarat",
     rating: 5,
-    text: "The quality of saffron is exceptional! The aroma and color are unmatched. I've been using it for my cooking and skincare routine.",
+    text: "The indoor aeroponic training program was comprehensive and practical. The instructors provided step-by-step guidance on climate control, nutrient delivery, and disease prevention. Their post-training support gave me the confidence to set up my own facility.",
   },
   {
-    name: "Ahmed Khan",
-    location: "Dubai, UAE",
+    name: "Dr. Ananya Sharma",
+    location: "Agripreneur & Farm Owner, Jaipur",
     rating: 5,
-    text: "Best saffron I've ever purchased online. The WhatsApp ordering process was so convenient. Highly recommended!",
+    text: "Outstanding guidance and mentorship from the Chakra Biotech team! The practical hands-on sessions on protected saffron cultivation were invaluable. Whenever I encountered queries during setup, their technical team was always available.",
   },
   {
-    name: "Sarah Johnson",
-    location: "London, UK",
+    name: "Vikram Deshmukh",
+    location: "CEA Specialist, Maharashtra",
     rating: 5,
-    text: "I was skeptical at first, but the quality speaks for itself. The training videos helped me understand saffron better.",
+    text: "I attended the advanced aeroponic saffron training, and it exceeded my expectations. The detailed curriculum, real-world farm case studies, and continuous agronomic guidance helped our team launch commercial production smoothly.",
   },
 ];
 
