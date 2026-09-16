@@ -375,6 +375,7 @@ export default function ProductDetails() {
                     <Share2 className="w-5 h-5" />
                   </Button>
                 </div>
+              </div>
             </div>
           </motion.div>
         </div>
